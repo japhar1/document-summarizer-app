@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Legal Document Summarizer</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Legal Document Summarizer</h1>
+
+        <form id="uploadForm">
+            <input type="file" id="fileInput" name="file" accept=".pdf,.doc,.docx" required />
+            <button type="submit">Upload and Summarize</button>
+        </form>
+
+        <div id="loader" class="hidden">Processing... please wait.</div>
+
+        <div id="result" class="summary-container hidden">
+            <h2>Summary & Extracted Info</h2>
+            <div class="summary-box">
+                <div id="summaryText"></div>
+            </div>
+            <div id="downloadBtn">
+                <button id="downloadSummary">Download Summary</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const form = document.getElementById("uploadForm");
+        const fileInput = document.getElementById("fileInput");
+        const summaryText = document.getElementById("summaryText");
+        const loader = document.getElementById("loader");
+        const result = document.getElementById("result");
+        const downloadBtn = document.getElementById("downloadSummary");
+
+        form.addEventListener("submit", async (e) => {
+            e.preventDefault();
+
+            const file = fileInput.files[0];
+            if (!file) return alert("Please select a file.");
+
+            const maxSize = 5 * 1024 * 1024; // 5MB
+            const allowedTypes = [".pdf", ".doc", ".docx"];
+            const extension = file.name.slice(file.name.lastIndexOf(".")).toLowerCase();
+
+            if (!allowedTypes.includes(extension)) {
+                return alert("Unsupported file type. Please upload a PDF or Word document.");
+            }
+
+            if (file.size > maxSize) {
+                return alert("File is too large. Maximum allowed size is 5MB.");
+            }
+
+            const formData = new FormData();
+            formData.append("file", file);
+
+            loader.classList.remove("hidden");
+            result.classList.add("hidden");
+
+            try {
+                const res = await fetch("/upload", {
+                    method: "POST",
+                    body: formData
+                });
+
+                const data = await res.json();
+
+                if (data.summary) {
+                    summaryText.textContent = data.summary;
+                    result.classList.remove("hidden");
+                } else {
+                    summaryText.textContent = "Something went wrong.";
+                    result.classList.remove("hidden");
+                }
+            } catch (err) {
+                summaryText.textContent = "Error: " + err.message;
+                result.classList.remove("hidden");
+            } finally {
+                loader.classList.add("hidden");
+            }
+        });
+
+
+        downloadBtn.addEventListener("click", () => {
+            const blob = new Blob([summaryText.textContent], { type: "text/plain" });
+            const link = document.createElement("a");
+            link.href = URL.createObjectURL(blob);
+            link.download = "summary.txt";
+            link.click();
+        });
+    </script>
+</body>
+</html>
