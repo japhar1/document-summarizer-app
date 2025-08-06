@@ -34,7 +34,6 @@ pydantic==2.11.7
 pydantic_core==2.33.2
 python-docx==1.2.0
 python-dotenv==1.1.1
-pywin32==311
 reportlab==4.4.3
 requests==2.32.4
 requests-oauthlib==2.0.0
