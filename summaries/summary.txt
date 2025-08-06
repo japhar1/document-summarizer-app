@@ -1,0 +1,40 @@
+### Summary of Service Contract
+
+**Parties Involved:**
+- Mercy Corps: A nonprofit corporation based in Portland, Oregon, U.S.A.
+- Contractor: Not specified in the provided text.
+
+**Effective Date:** Not explicitly mentioned in the provided text.
+
+**Key Clauses:**
+1. **Defined Terms:** Specific terms such as Authorized Representative, Payment Terms, Services, and SOW (Statement of Work) are defined in Schedule I attached to this contract.
+
+2. **Delivery of Services:** 
+   - The Contractor is obligated to perform services using its employees without subcontracting, unless with written consent from Mercy Corps.
+   - Key personnel listed in Schedule I are considered a material part of the agreement; changes require prior notice and an amendment.
+
+3. **Compliance with SOW and Changes:**
+   - Services must be delivered strictly as per the provided SOW.
+   - Any deviations or changes require prior written consent from Mercy Corps, which also reserves the right to adjust the scope of services.
+   - Changes in SOW that impact cost or time may lead to equitable adjustments in terms or both.
+
+4. **Invoicing and Payment:**
+   - Invoices should comply with details and schedules outlined in the SOW, and must be submitted within 60 days after contract end date.
+   - Mercy Corps has no obligation to pay for invoices submitted beyond this 60-day period.
+   - Mercy Corps will pay verified invoices within 30 days after invoice receipt or dispute resolution.
+   - Offset clause exists for mutual debts between the parties.
+
+5. **Taxes, Duties and Expenses:**
+   - Contractor bears responsibility for all taxes, duties, charges, and expenses related to the service delivery, except when otherwise outlined in the SOW. 
+   - In case tax withholding is required, Mercy Corps will withhold such taxes and provide official notification to the Contractor.
+
+6. **Representations, Warranties, and Covenants:**
+   - Contractor confirms its eligibility and capability to perform obligations under this contract without legal infringements.
+   - Compliance with all applicable laws, regulations, anti-terrorism acts, anti-corruption laws including U.S. Foreign Corrupt Practices Act and the UK Bribery Act.
+
+**Obligations of the Parties:**
+- **Mercy Corps** is responsible for providing timely payment for Services rendered within the agreed terms and ensuring any administrative withholdings are communicated.
+- **Contractor** must deliver services in line with the SOW, manage all relevant expenses, comply fully with all applicable legal requirements, and ensure transparency and legality in its business practices related to this contract.
+
+### Additional Notes:
+This contract appears to be a detailed agreement ensuring compliance, quality, and performance based on predefined parameters. The terms specify a clear framework for performance expectations, payments, and adjustments based on changes in scope, ensuring protection and clarity for both parties involved. Specific contract details such as effective dates, contract numbers, and identification of contractors should be carefully reviewed and recorded when finalizing the agreement.

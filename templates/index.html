@@ -21,9 +21,9 @@
             <div class="summary-box">
                 <div id="summaryText"></div>
             </div>
-            <div id="downloadBtn">
-                <button id="downloadSummary">Download Summary</button>
-            </div>
+            <br>
+            <a href="/download/summary.pdf" class="button" download>Download Summary (PDF)</a>
+            <a href="/download/summary.txt" class="button" download>Download Summary (TXT)</a>
         </div>
     </div>
 
@@ -33,29 +33,13 @@
         const summaryText = document.getElementById("summaryText");
         const loader = document.getElementById("loader");
         const result = document.getElementById("result");
-        const downloadBtn = document.getElementById("downloadSummary");
 
         form.addEventListener("submit", async (e) => {
             e.preventDefault();
-
             const file = fileInput.files[0];
             if (!file) return alert("Please select a file.");
-
-            const maxSize = 5 * 1024 * 1024; // 5MB
-            const allowedTypes = [".pdf", ".doc", ".docx"];
-            const extension = file.name.slice(file.name.lastIndexOf(".")).toLowerCase();
-
-            if (!allowedTypes.includes(extension)) {
-                return alert("Unsupported file type. Please upload a PDF or Word document.");
-            }
-
-            if (file.size > maxSize) {
-                return alert("File is too large. Maximum allowed size is 5MB.");
-            }
-
             const formData = new FormData();
             formData.append("file", file);
-
             loader.classList.remove("hidden");
             result.classList.add("hidden");
 
@@ -64,9 +48,7 @@
                     method: "POST",
                     body: formData
                 });
-
                 const data = await res.json();
-
                 if (data.summary) {
                     summaryText.textContent = data.summary;
                     result.classList.remove("hidden");
@@ -80,15 +62,6 @@
             } finally {
                 loader.classList.add("hidden");
             }
-        });
-
-
-        downloadBtn.addEventListener("click", () => {
-            const blob = new Blob([summaryText.textContent], { type: "text/plain" });
-            const link = document.createElement("a");
-            link.href = URL.createObjectURL(blob);
-            link.download = "summary.txt";
-            link.click();
         });
     </script>
 </body>
